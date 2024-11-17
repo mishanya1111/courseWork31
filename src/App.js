@@ -1,25 +1,45 @@
 import logo from './logo.svg';
-import './App.css';
-
+import './first.css';
+import { useContext } from 'react';
+import CardList from './сomponents/CardList';
+import styled from 'styled-components';
+import { CardContext } from './context/сardArrayContext';
+const InputViewOnly = styled.input`
+    &:hover {
+        scale: 2;
+    }
+`;
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { viewOnlyCheckBoxClick, addNewCard, deleteSelectedCard, items } =
+        useContext(CardContext);
+
+    return (
+        <div>
+            <header className="AppHeader">
+                <img src={logo} className="AppLogo" alt="logo" />
+                <h1>Some very informative title</h1>
+                <span className="badge" style={{ marginLeft: 10 }}>
+                    Count card: {items.length}
+                </span>
+                <div className="checkboxView">
+                    <InputViewOnly
+                        type="checkbox"
+                        onChange={viewOnlyCheckBoxClick}
+                    />
+                    <label htmlFor="checboxView">View only</label>
+                </div>
+                <button onClick={addNewCard} style={{ marginLeft: 10 }}>
+                    Add Card
+                </button>
+                <button onClick={deleteSelectedCard} style={{ marginLeft: 10 }}>
+                    Delete selected cards
+                </button>
+            </header>
+            <div className="cardContainer">
+                {<CardList />}
+            </div>
+        </div>
+    );
 }
 
 export default App;

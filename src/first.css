@@ -1,0 +1,117 @@
+
+body {
+    background: #282c34;
+    color: white;
+}
+
+.card {
+    width: 400px;
+}
+
+.card * {
+    margin: 0;
+}
+
+.AppLogo {
+    width: 70px;
+    height: 70px;
+}
+
+.AppHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+}
+
+
+.cardButton {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 32px;
+}
+
+.textAreaBox {
+    width: 350px;
+    height: 140px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
+    gap: 20px;
+}
+
+.card {
+    width: calc(25% - 20px);
+    min-width: 300px;
+}
+.spinBox {
+    height: 276px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(25% - 20px);
+    min-width: 300px;
+}
+
+@media (max-width: 1600px) {
+    .card {
+        width: calc(33.33% - 20px);
+    }
+    .spinBox{
+        width: calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 1200px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+    .spinBox{
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: calc(100% - 20px);
+    }
+    .spinBox{
+        width: calc(100% - 20px);
+    }
+}
+
+
+.checkboxView{
+    margin-left: auto;
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+    border: 8px solid;
+    border-color: #3d5af1 transparent #3d5af1 transparent;
+    border-radius: 50%;
+    animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.badge {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 40px;
+}

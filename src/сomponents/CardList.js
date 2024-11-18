@@ -1,14 +1,11 @@
 import Card from './Card';
 import withLoadingDelay from '../hooks/withLoadingDelay';
-import { CardContext } from '../context/сardArrayContext';
-import { useContext } from 'react';
 
 const CardWithLoading = withLoadingDelay(Card);
-function CardList() {
-    const { items } = useContext(CardContext);
+function CardList({ items }) {
     return (
         <>
-            {items.map(card => (
+            {items?.map(card => (
                 <CardWithLoading
                     //viewOnlyChecked={viewOnlyCheckBoxClick}
                     firstTitle={card.title}

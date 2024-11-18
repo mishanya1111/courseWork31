@@ -1,6 +1,6 @@
-import { MdOutlineCancel } from 'react-icons/md';
+/*import { MdOutlineCancel } from 'react-icons/md';
 import { FaSave } from 'react-icons/fa';
-import { AiOutlineEdit } from 'react-icons/ai';
+import { AiOutlineEdit } from 'react-icons/ai';*/
 import CustomDiv from './CustomDiv';
 
 function CardHeader({
@@ -25,12 +25,12 @@ function CardHeader({
                 />
             </h2>
             <button onClick={onCansel} className="cancelButton">
-                Cancel
-                <MdOutlineCancel />
+                Отмена
+                {/*<MdOutlineCancel />*/}
             </button>
             <button onClick={onSave} className="cardButton">
-                Save
-                <FaSave />
+                Сохранить
+                {/* <FaSave />*/}
             </button>
         </CustomDiv>
     ) : (
@@ -40,8 +40,8 @@ function CardHeader({
             <div style={{ width: 80 }}>
                 {!isDisableMode && (
                     <button onClick={onEdit} className="cardButton">
-                        Edit
-                        <AiOutlineEdit />
+                        Изменить
+                        {/*<AiOutlineEdit />*/}
                     </button>
                 )}
             </div>

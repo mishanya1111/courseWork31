@@ -12,7 +12,7 @@ function Card({ firstTitle, firstText, id }) {
     const [text, setText] = useState(firstText);
     const [saveText, setSaveText] = useState(firstText);
     const [saveTitle, setSaveTitle] = useState(firstTitle);
-    const { viewOnly, cardCheckBoxClick } = useContext(CardContext);
+    const { viewOnly, cardCheckBoxClick, updateCard } = useContext(CardContext);
     useEffect(() => {
         cancelButton();
     }, [viewOnly]);
@@ -38,6 +38,7 @@ function Card({ firstTitle, firstText, id }) {
     function submitHandler() {
         setEditing(false);
         setSaveInf();
+        updateCard(id, { title, text });
     }
 
     function cancelButton() {

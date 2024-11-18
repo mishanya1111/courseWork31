@@ -1,3 +1,7 @@
+#root {
+    margin: 0 10px ;
+}
+
 
 body {
     background: #282c34;
@@ -13,15 +17,17 @@ body {
 }
 
 .AppLogo {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
 }
 
 .AppHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 95%;
+    width: 97%;
+    padding: 10px 20px;
+
 }
 
 
@@ -86,9 +92,6 @@ body {
 }
 
 
-.checkboxView{
-    margin-left: auto;
-}
 
 .spinner {
     width: 64px;
@@ -114,4 +117,129 @@ body {
     padding: 4px 8px;
     text-align: center;
     border-radius: 40px;
+    margin-left: 10px;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #3a3f47;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 35px;
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+
+}
+
+.navbar a:hover {
+    background-color: #505763;
+}
+
+.navbar a.active {
+    background-color: #61dafb;
+    color: #282c34;
+    font-weight: bold;
+}
+
+#detail {
+    padding: 0 20px;
+    background-color: #282c34;
+    min-height: 100vh;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navbar li {
+        margin: 10px 0;
+    }
+}
+
+.leftBlock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.centerBlock {
+    text-align: center;
+    flex: 1; /* Заставляем центрировать кнопку */
+}
+
+.toggleHiddenButton {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.rightBlock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.actionButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+color: black;
+    cursor: pointer;
+}
+
+.addButton {
+    background-color: green;
+    color: white;
+}
+
+.addButton.hidden {
+    visibility: hidden; /* Скрывает кнопку, сохраняя её место */
+}
+
+.toggleButton {
+    background-color: orange;
+    color: white;
+}
+
+.deleteButton {
+    background-color: red;
+    color: white;
+}
+
+.checkboxView {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }

@@ -7,12 +7,11 @@ function CardList({ items }) {
         <>
             {items?.map(card => (
                 <CardWithLoading
-                    //viewOnlyChecked={viewOnlyCheckBoxClick}
                     firstTitle={card.title}
                     firstText={card.text}
                     key={card.id}
                     id={card.id}
-                    //checkBoxChange={checkBoxChange}
+                    editing={card.editing} // Передаем свойство
                 />
             ))}
         </>

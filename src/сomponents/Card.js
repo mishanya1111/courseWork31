@@ -5,14 +5,19 @@ import CardHeader from './CardHeader';
 import CardBody from './CardBody';
 import PropTypes from 'prop-types';
 
-function Card({ firstTitle, firstText, id }) {
+function Card({ firstTitle, firstText, id, editing: initialEditing }) {
+
     const [checked, setChecked] = useState(false);
-    const [editing, setEditing] = useState(false);
+    const [editing, setEditing] = useState(false );
     const [title, setTitle] = useState(firstTitle);
     const [text, setText] = useState(firstText);
     const [saveText, setSaveText] = useState(firstText);
     const [saveTitle, setSaveTitle] = useState(firstTitle);
+    useEffect(()=>{
+        setTimeout(() => {setEditing(initialEditing);});
+    },[])
     const { viewOnly, cardCheckBoxClick, updateCard } = useContext(CardContext);
+
     useEffect(() => {
         cancelButton();
     }, [viewOnly]);

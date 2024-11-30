@@ -20,16 +20,15 @@ function Home() {
         toggleHiddenState,
     } = useContext(CardContext);
 
-    const [showHidden, setShowHidden] = useState(false); // Для переключения вида
+    const [showHidden, setShowHidden] = useState(false);
 
-    // Фильтруем карточки в зависимости от режима
     const filteredItems = items
         .filter(card => (showHidden ? card.isHidden : !card.isHidden))
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     const handleShowHiddenToggle = () => {
         setShowHidden(prev => {
-            // Если мы переключаем режим, сбрасываем все карточки как неактивные
+
             if (!prev) {
                 updateCardIsActive(cards =>
                     cards.map(card => ({ ...card, isActive: false }))
@@ -38,14 +37,6 @@ function Home() {
             return !prev;
         });
     };
-    /* // Функция для скрытия или возврата карточек
-    const toggleHiddenState = () => {
-        updateCard(card =>
-            card.map(item =>
-                item.isActive ? { ...item, isHidden: !item.isHidden } : item
-            )
-        );
-    };*/
 
     return (
         <div>
@@ -53,9 +44,6 @@ function Home() {
                 <div className="leftBlock">
                     <img src={logo} className="AppLogo" alt="logo" />
                     <h1>{showHidden ? 'Скрытые дела' : 'Список дел'}</h1>
-                    {/*<span className="badge">
-            {showHidden ? 'Скрытые  дела' : 'Количество дел'}: {filteredItems.length}
-        </span>*/}
                 </div>
 
                 <div className="centerBlock">

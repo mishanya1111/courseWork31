@@ -16,19 +16,18 @@ export const CardContext = createContext({
 export default function CardContextProvider({ children }) {
     const [checked, setChecked] = useState(false);
 
-    // Загружаем данные из localStorage или используем начальные данные
     const [data, setData] = useState(() => {
         const savedData = localStorage.getItem('cards');
         const initialData = JSON.parse(savedData) || cardsData;
-        return initialData.map(card => ({ ...card, isActive: false })); // Устанавливаем isActive: false
+        return initialData.map(card => ({ ...card, isActive: false , editing: false }));
     });
 
-    // Синхронизация данных с localStorage
+
     useEffect(() => {
         localStorage.setItem('cards', JSON.stringify(data));
+
     }, [data]);
 
-    // Изменение активности карточки
     function changeActiveHandler(id) {
         setData(cards =>
             cards.map(card => {
@@ -40,28 +39,27 @@ export default function CardContextProvider({ children }) {
         );
     }
 
-    // Удаление выбранных карточек
     function deleteHandler() {
         setData(cards => cards.filter(card => !card.isActive));
     }
 
-    // Переключение состояния чекбокса
     function changeCheckboxApp() {
         setChecked(!checked);
     }
 
-    // Добавление новой карточки
     function addNewCard() {
         const newCard = {
             id: uuidv4(),
             title: 'Новое дело',
-            text: 'Нажми Изменить , чтобы начать редактирование',
+            text: 'Нажми Изменить, чтобы начать редактирование',
             isActive: false,
             isHidden: false,
+            editing: true,
             createdAt: new Date().toISOString()
         };
         setData([newCard, ...data]);
     }
+
 
     function updateCardHandler(id, { title, text }) {
         setData(cards =>
@@ -71,7 +69,6 @@ export default function CardContextProvider({ children }) {
         );
     }
 
-    // Переключение скрытости карточек
     function toggleHiddenState() {
         setData(cards =>
             cards.map(card =>

@@ -5,5 +5,6 @@ const CustomDiv = styled.div`
     height: ${({ $title }) => ($title ? '' : '160px')};
     display: ${({ $title }) => ($title ? 'flex' : '')};
     justify-content: ${({ $title }) => ($title ? 'space-between' : '')};
+    overflow: hidden;
 `;
 export default CustomDiv;
